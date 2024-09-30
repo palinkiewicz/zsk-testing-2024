@@ -1,5 +1,3 @@
-using BusinessLogic;
-
 namespace BusinessLogic.Tests
 {
     public class UnitTest1
@@ -11,11 +9,25 @@ namespace BusinessLogic.Tests
 
             double a = 1.0;
             double b = 2.0;
-            double expectedResult = a + b;
+            double expectedResult = 3.0;
 
             double result = calc.Add(a, b);
 
             Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void Calculator_AddInt_Overflows()
+        {
+            Calculator calc = new();
+
+            int a = int.MaxValue;
+            int b = 2;
+
+            Assert.Throws<OverflowException>(() =>
+            {
+                calc.Add(a, b);
+            });
         }
 
         [Fact]
@@ -25,7 +37,7 @@ namespace BusinessLogic.Tests
 
             double a = 1.0;
             double b = 2.0;
-            double expectedResult = a - b;
+            double expectedResult = -1.0;
 
             double result = calc.Substract(a, b);
 

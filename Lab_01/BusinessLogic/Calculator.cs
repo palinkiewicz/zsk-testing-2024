@@ -12,6 +12,14 @@
         {
             return a + b;
         }
+        public int Add(int a, int b)
+        {
+            checked
+            {
+                return a + b;
+            }
+            
+        }
 
         /// <summary>
         /// Substracts the second number from the first number
