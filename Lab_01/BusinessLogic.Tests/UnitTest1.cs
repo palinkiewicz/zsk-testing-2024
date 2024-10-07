@@ -30,6 +30,19 @@ namespace BusinessLogic.Tests
             });
         }
 
+        [Theory]
+        [InlineData(1, int.MaxValue)]
+        [InlineData(-1, int.MinValue)]
+        public void Calculator_AddInt_Overflows_Parameters(int a, int b)
+        {
+            Calculator calc = new();
+
+            Assert.Throws<OverflowException>(() =>
+            {
+                calc.Add(a, b);
+            });
+        }
+
         [Fact]
         public void Calculator_Substract_SubstractsTwoNumbers()
         {
