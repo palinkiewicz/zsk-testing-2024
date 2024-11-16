@@ -2,9 +2,6 @@
 
 namespace Library.Tests
 {
-    /// <summary>
-    /// ADAM PALINKIEWICZ NR 13
-    /// </summary>
     public class BankAccountTests
     {
         [Fact]
